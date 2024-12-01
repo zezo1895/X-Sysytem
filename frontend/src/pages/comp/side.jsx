@@ -26,7 +26,7 @@ const Side = () => {
 
 const signout = async () => {
   try {
-    await axios.get("http://localhost:5000/api/logout").then((res) => {
+    await axios.get("https://x-sysytem-api.vercel.app/api/logout").then((res) => {
       if (res.data.status===true) {
       
         navigate("/login")
@@ -50,7 +50,7 @@ const upload = async (eo) => {
   formdata.append("file",link)
   try {
     const response = await axios.post(
-      "http://localhost:5000/api/upload",
+      "https://x-sysytem-api.vercel.app/api/upload",
       formdata
     );
     if(response.data.update){
@@ -70,7 +70,7 @@ const upload = async (eo) => {
 }
 const send = async () => {
   try {
-    const response = await axios.get("http://localhost:5000/api/side");
+    const response = await axios.get("https://x-sysytem-api.vercel.app/api/side");
     if (response.data.status) {
       setCurrent(response.data.userdata);
       setDataFetched(true)
