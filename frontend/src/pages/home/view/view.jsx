@@ -15,7 +15,7 @@ const View = () => {
 
   const send = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/home/view/${id}`);
+      const response = await axios.get(`https://x-sysytem-api.vercel.app/api/home/view/${id}`);
       if (response.data.status) {
         setCurrent(response.data.info);
       } if(response.data.status==false) {

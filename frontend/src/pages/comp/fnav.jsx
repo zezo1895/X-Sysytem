@@ -10,7 +10,7 @@ const Fnav = () => {
   axios.defaults.withCredentials = true;
   const send = async () => {
     try {
-      await axios.get("http://localhost:5000/api/home").then((res) => {
+      await axios.get("https://x-sysytem-api.vercel.app/api/home").then((res) => {
         if (res.data.status) {
           setcurrent(true);
         } else {

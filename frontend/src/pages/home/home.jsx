@@ -17,7 +17,7 @@ const Home = () => {
 
   const send = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/home");
+      const response = await axios.get("https://x-sysytem-api.vercel.app/api/home");
       if (response.data.status) {
         setCurrent(response.data.userdata);
       }
@@ -32,7 +32,7 @@ const Home = () => {
     eo.preventDefault(); 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/home/search",
+        "https://x-sysytem-api.vercel.app/api/home/search",
         searchtext
       );if(response.data.array){setCurrent(response.data.array)}
       if(response.data.status===false){
@@ -146,7 +146,7 @@ const Home = () => {
                               onClick={async () => {
                                 try {
                                   const response = await axios.delete(
-                                    `http://localhost:5000/api/home/delete/${item._id}`
+                                    `https://x-sysytem-api.vercel.app/api/home/delete/${item._id}`
                                   );
                                   if (response.data.action) {
                                     navigate("/home");

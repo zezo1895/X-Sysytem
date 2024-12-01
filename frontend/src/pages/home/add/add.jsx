@@ -227,7 +227,7 @@ const Add = () => {
   const check= async () => {
     axios.defaults.withCredentials = true;
     try {
-      const response = await axios.get("http://localhost:5000/api/add");
+      const response = await axios.get("https://x-sysytem-api.vercel.app/api/add");
       if (response.data.status===false) {
           navigate("/login")
       } 
@@ -241,7 +241,7 @@ const Add = () => {
     
     axios.defaults.withCredentials = true;
 try{
-    const response=await axios.post("http://localhost:5000/api/newCust",{
+    const response=await axios.post("https://x-sysytem-api.vercel.app/api/newCust",{
     firstName,lastName,email,age,gender,country,phone
       });
       if(response.data.status===true){
