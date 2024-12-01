@@ -16,7 +16,7 @@ const Signup = () => {
   useEffect(() => {
     const fetch_page =async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/signup_page`);
+        const response = await axios.get(`https://x-sysytem-api.vercel.app/api/signup_page`);
       if(response.data.auth===true){
         navigate("/home")
       }
@@ -38,7 +38,7 @@ const Signup = () => {
     try {
       const { data } = await axios
         .post(
-          "http://localhost:5000/api/signup",
+          "https://x-sysytem-api.vercel.app/api/signup",
           {
             username,
             email,
@@ -76,7 +76,7 @@ const Signup = () => {
       console.log(error);
     }
 
-    // await fetch("http://localhost:5000/api/signup", {
+    // await fetch("https://x-sysytem-api.vercel.app/api/signup", {
     //   method: "POST",
     //   body: JSON.stringify({
     //   username,email,password
