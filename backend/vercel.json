@@ -1,4 +1,10 @@
 {
+  
+
+      "headers": {
+        "Access-Control-Allow-Origin": "https://x-sysytem-ziads-projects-f6c73ae6.vercel.app",
+        "Access-Control-Allow-Credentials": "true"
+      }
   "version": 2,
   "builds": [
     {
