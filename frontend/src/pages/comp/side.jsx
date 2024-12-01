@@ -22,7 +22,7 @@ const Side = () => {
   const handleShowdrop = () => setshowdrop(true);
   const navigate = useNavigate();
   
-  axios.defaults.withCredentials = true;
+  axios.defaults.withCredentials =  true;
 
 const signout = async () => {
   try {
@@ -113,7 +113,7 @@ if(current){
     <span className="fs-4">Sidebar</span>
   </a>
   <hr />
-  <ul className="nav nav-pills flex-column mb-auto">
+  <ul className="nav nav-pills  flex-column mb-auto">
     <li className="nav-item">
       <a href="/home" className={`nav-link text-white   ${path === "/home"? "active":null} `} aria-current="page">
         <svg className="bi me-2" width={16} height={16}>
