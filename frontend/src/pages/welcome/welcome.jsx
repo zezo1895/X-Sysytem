@@ -9,7 +9,7 @@ const Welcome = () => {
   useEffect(() => {
     const fetch_page =async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/wel_page`);
+        const response = await axios.get(`https://x-sysytem-api.vercel.app/api/wel_page`);
       if(response.data.auth===true){
         navigate("/home")
       }
