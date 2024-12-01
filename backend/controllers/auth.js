@@ -88,9 +88,10 @@ const post_signup =   async (req, res) => {
 //  get log out 
 const get_logout =async (req, res) => {
 await  res.clearCookie("jwt",{withCrdentials: true,
-  secure:true,
+
   sameSite:'None',
     httpOnly: true});
+    res.end()
   return res.json({ status: true });
 }
 
