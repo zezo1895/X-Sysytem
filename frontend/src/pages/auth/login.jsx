@@ -19,7 +19,7 @@ const Login = () => {
     setpasserrr(null)
 
 try{
-    const {data}=await axios.post("http://localhost:5000/api/login",{
+    const {data}=await axios.post("https://x-sysytem-api.vercel.app/api/login",{
     email,password
       },{withCredentials: true});
       if(data.emailerr){
@@ -40,7 +40,7 @@ try{
   useEffect(() => {
     const fetch_page =async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/login_page`);
+        const response = await axios.get(`https://x-sysytem-api.vercel.app/api/login_page`);
       if(response.data.auth===true){
         navigate("/home")
       }
