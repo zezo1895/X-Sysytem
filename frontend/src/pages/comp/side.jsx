@@ -45,7 +45,7 @@ const handleClickOutside = (event) => {
 
 
 const upload = async (eo) => {
-  
+  eo.preventDefault();
   const formdata=new FormData()
   formdata.append("file",link)
   try {
@@ -54,7 +54,7 @@ const upload = async (eo) => {
       formdata
     );
     if(response.data.update){
-      eo.preventDefault();
+      
       navigate("/")
       
     }
