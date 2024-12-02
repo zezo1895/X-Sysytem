@@ -32,7 +32,7 @@ const post_login = async (req, res) => {
           domain:"https://x-sysytem-ziads-projects-f6c73ae6.vercel.app",
           withCrdentials: true,
           secure:true,
-          sameSite:'None',
+          sameSite:Strict,
           httpOnly: true,
           maxAge: 86500000,
         });
@@ -73,7 +73,7 @@ const post_signup =   async (req, res) => {
       res.cookie("jwt", token, {
         withCrdentials: true,
         secure:true,
-          sameSite:'None',
+          sameSite:Strict,
           httpOnly: true,
         maxAge: 86500000,
       });
