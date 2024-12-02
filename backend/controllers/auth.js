@@ -27,11 +27,10 @@ const post_login = async (req, res) => {
       const match = await bcrypt.compare(req.body.password, loginUser.password);
       if (match) {
         var token = await jwt.sign({ id: loginUser._id }, process.env.JWT_SECRETE_KEY);
-        
         res.cookie("jwt", token, {
           withCrdentials: true,
           secure:true,
-          sameSite:'None',
+          sameSite:Strict,
           httpOnly: true,
           maxAge: 86500000,
         });
@@ -72,7 +71,7 @@ const post_signup =   async (req, res) => {
       res.cookie("jwt", token, {
         withCrdentials: true,
         secure:true,
-          sameSite:'None',
+          sameSite:Strict,
           httpOnly: true,
         maxAge: 86500000,
       });
