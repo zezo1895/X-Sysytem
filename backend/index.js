@@ -21,7 +21,7 @@ mongoose
   )
   .then(() => {
     app.listen(port, () => {
-      console.log(`http://localhost:${port}/`);
+      console.log(`https://x-sysytem.vercel.app`);
     });
   })
   .catch((err) => {
@@ -36,7 +36,7 @@ app.use(
     credentials: true,
     //allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],  // تحديد الرؤوس المسموح بها
     //exposedHeaders: ['X-Custom-Header'],
-    sameSite:'None',
+    //sameSite:'None',
   })
 );
 
