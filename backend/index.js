@@ -34,7 +34,8 @@ app.use(
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     credentials: true,
     allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],  // تحديد الرؤوس المسموح بها
-    exposedHeaders: ['X-Custom-Header']
+    exposedHeaders: ['X-Custom-Header'],
+    sameSite:'None',
   })
 );
 
