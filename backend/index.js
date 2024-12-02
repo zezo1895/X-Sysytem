@@ -30,7 +30,7 @@ mongoose
 
 app.use(
   cors({
-    origin: "https://x-sysytem-ziads-projects-f6c73ae6.vercel.app",
+    origin: "https://x-sysytem.vercel.app",
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     credentials: true,
   })
