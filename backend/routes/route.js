@@ -78,7 +78,12 @@ router.get("/test-cookie", async (req, res) => {
           res.json('noooo')
       
     }else if(req.cookies.test){
-      res.json('yessssssssss')
+      const set = await res.cookie("test", "value", {
+        secure: true,
+        sameSite: "None",
+        httpOnly: true,
+        maxAge: 86500000,
+      });
     }
     
     
