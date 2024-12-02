@@ -27,7 +27,9 @@ const post_login = async (req, res) => {
       const match = await bcrypt.compare(req.body.password, loginUser.password);
       if (match) {
         var token = await jwt.sign({ id: loginUser._id }, process.env.JWT_SECRETE_KEY);
+        
         res.cookie("jwt", token, {
+          domain:"https://x-sysytem-ziads-projects-f6c73ae6.vercel.app",
           withCrdentials: true,
           secure:true,
           sameSite:'None',
@@ -69,9 +71,9 @@ const post_signup =   async (req, res) => {
       const result = await Auth.create(req.body);
       var token =await jwt.sign({ id: result._id }, process.env.JWT_SECRETE_KEY);
       res.cookie("jwt", token, {
-        
+        withCrdentials: true,
         secure:true,
-          sameSite:true,
+          sameSite:'None',
           httpOnly: true,
         maxAge: 86500000,
       });
@@ -89,9 +91,9 @@ const post_signup =   async (req, res) => {
 const get_logout =async (req, res) => {
 await  res.clearCookie("jwt",{withCrdentials: true,
 
-  sameSite:true,
+  sameSite:'None',
     httpOnly: true});
-  
+    res.end()
   return res.json({ status: true });
 }
 
