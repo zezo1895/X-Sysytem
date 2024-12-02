@@ -27,14 +27,15 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
+app.use(cookieParser());
 
 app.use(
   cors({
     origin: "https://x-sysytem.vercel.app",
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    //methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     credentials: true,
-    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],  // تحديد الرؤوس المسموح بها
-    exposedHeaders: ['X-Custom-Header'],
+    //allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],  // تحديد الرؤوس المسموح بها
+    //exposedHeaders: ['X-Custom-Header'],
     sameSite:'None',
   })
 );
@@ -42,6 +43,5 @@ app.use(
 app.use(express.urlencoded({ extended: true }));
 
 
-app.use(cookieParser());
 app.use(express.json());
 app.use(route);
