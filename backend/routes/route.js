@@ -12,7 +12,6 @@ const multer = require("multer");
 const upload = multer({ storage: multer.diskStorage({}) });
 const { check, validationResult } = require("express-validator");
 
-
 // test page
 router.get("/", (req, res) => {
   res.send("Hello World!");
@@ -22,29 +21,28 @@ router.get("/api/login_page", Authcon.get_login);
 // signup page
 router.get("/api/signup_page", Authcon.get_signup);
 // welcome page
-router.get("/api/wel_page",Usercon.get_welcome );
+router.get("/api/wel_page", Usercon.get_welcome);
 // home page with midd
-router.get("/api/home", checkAuth,Usercon.get_home );
+router.get("/api/home", checkAuth, Usercon.get_home);
 
 // add page with midd
-router.get("/api/add", checkAuth,Usercon.get_add );
+router.get("/api/add", checkAuth, Usercon.get_add);
 // side with midd
 router.get("/api/side", checkAuth, Usercon.get_side);
-
 
 // log out with midd
 router.get("/api/logout", checkAuth, Authcon.get_logout);
 // view with midd
-router.get("/api/home/view/:id", checkAuth,Usercon.get_view );
+router.get("/api/home/view/:id", checkAuth, Usercon.get_view);
 // edit with midd
-router.get("/api/edit/:id", checkAuth,Usercon.get_edit );
+router.get("/api/edit/:id", checkAuth, Usercon.get_edit);
 
 // delete in home page  with midd
-router.delete("/api/home/delete/:id", checkAuth,Usercon.delete_home_page );
+router.delete("/api/home/delete/:id", checkAuth, Usercon.delete_home_page);
 // delete in edit page with midd
-router.delete("/api/edit/:idd", checkAuth,Usercon.delete_edit_page );
+router.delete("/api/edit/:idd", checkAuth, Usercon.delete_edit_page);
 // edit in  with midd
-router.put("/api/edit/data/:iddd", checkAuth,Usercon.put_edit );
+router.put("/api/edit/data/:iddd", checkAuth, Usercon.put_edit);
 // post signup
 router.post(
   "/api/signup",
@@ -62,23 +60,33 @@ router.post("/api/login", Authcon.post_login);
 // post upload image
 router.post("/api/upload", upload.single("file"), Usercon.post_image);
 // post add data
-router.post("/api/newCust", checkAuth,Usercon.post_add_data );
+router.post("/api/newCust", checkAuth, Usercon.post_add_data);
 //serch
-router.post("/api/home/search", checkAuth,Usercon.post_serch );
-
+router.post("/api/home/search", checkAuth, Usercon.post_serch);
 
 router.get("/test-cookie", async (req, res) => {
-const set= await res.cookie("test", "value", {
+  console.log(req.cookies);
+  try {
+    if (!req.cookies.test ) {
+      const set = await res.cookie("test", "value", {
         secure: true,
         sameSite: "None",
         httpOnly: true,
         maxAge: 86500000,
-    });
-    console.log("+++++++++");
-    
-    if(set){
-      res.json({sat:"lol"})
+      });
+      console.log("noo");
+      console.log(req.cookies);
+      res.json('noooo')
     }
+
+  
+  } catch (err) {
+    console.log(err);
+  }
+
+  //     if(set){
+  //       res.json({sat:"lol"})
+  //     }
 });
 
 ////middleware
