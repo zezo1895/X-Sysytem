@@ -33,6 +33,8 @@ app.use(
     origin: "https://x-sysytem.vercel.app",
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     credentials: true,
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],  // تحديد الرؤوس المسموح بها
+    exposedHeaders: ['X-Custom-Header']
   })
 );
 
