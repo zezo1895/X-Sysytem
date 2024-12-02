@@ -73,7 +73,7 @@ router.get("/test-cookie", (req, res) => {
         sameSite: "None",
         httpOnly: true,
     });
-    res.send("Cookie set");
+    res.json("Cookie set");
 });
 
 ////middleware

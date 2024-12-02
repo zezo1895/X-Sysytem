@@ -54,10 +54,8 @@ try{
     const test =async () => {
       try {
         const response = await axios.get(`https://x-sysytem-api.vercel.app/test-cookie`);
-      if(response.data.auth===true){
-        navigate("/home")
-      }
-          
+    
+          console.log(response.data);
         
       } catch (error) {
         console.error("Error fetching data:", error);
