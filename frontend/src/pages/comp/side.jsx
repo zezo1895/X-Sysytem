@@ -25,6 +25,7 @@ const Side = () => {
   axios.defaults.withCredentials =  true;
 
 const signout = async () => {
+
   try {
     await axios.get("https://x-sysytem-api.vercel.app/api/logout").then((res) => {
       if (res.data.status===true) {
