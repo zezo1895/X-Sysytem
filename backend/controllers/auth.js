@@ -30,7 +30,7 @@ const post_login = async (req, res) => {
         res.cookie("jwt", token, {
           withCrdentials: true,
           secure:true,
-          sameSite:Strict,
+          sameSite:'Strict',
           httpOnly: true,
           maxAge: 86500000,
         });
@@ -71,7 +71,7 @@ const post_signup =   async (req, res) => {
       res.cookie("jwt", token, {
         withCrdentials: true,
         secure:true,
-          sameSite:Strict,
+          sameSite:'Strict',
           httpOnly: true,
         maxAge: 86500000,
       });
