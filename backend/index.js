@@ -30,7 +30,7 @@ mongoose
 
 app.use(
   cors({
-    origin: "https://x-sysytem.vercel.app",
+    origin: "https://x-sysytem.vercel.app"||"http://localhost:5000",
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     credentials: true,
     allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],  // تحديد الرؤوس المسموح بها

@@ -66,6 +66,16 @@ router.post("/api/newCust", checkAuth,Usercon.post_add_data );
 //serch
 router.post("/api/home/search", checkAuth,Usercon.post_serch );
 
+
+router.get("/test-cookie", (req, res) => {
+    res.cookie("test", "value", {
+        secure: true,
+        sameSite: "None",
+        httpOnly: true,
+    });
+    res.send("Cookie set");
+});
+
 ////middleware
 
 module.exports = router;
