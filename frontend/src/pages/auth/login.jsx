@@ -53,9 +53,9 @@ try{
     fetch_page()
     const test =async () => {
       try {
-        const response = await axios.get(`https://x-sysytem.vercel.app/test-cookie`);
+        const response = await axios.get(`https://x-sysytem-api.vercel.app/test-cookie`);
     
-          console.log(response.data);
+          console.log("done");
         
       } catch (error) {
         console.error("Error fetching data:", error);

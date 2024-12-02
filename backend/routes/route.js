@@ -65,28 +65,30 @@ router.post("/api/newCust", checkAuth, Usercon.post_add_data);
 router.post("/api/home/search", checkAuth, Usercon.post_serch);
 
 router.get("/test-cookie", async (req, res) => {
-  console.log(req.cookies);
+  
   try {
-    if (!req.cookies.test ) {
+    if(!req.cookies.test){
       const set = await res.cookie("test", "value", {
-        secure: true,
-        sameSite: "None",
-        httpOnly: true,
-        maxAge: 86500000,
-      });
-      console.log("noo");
-      console.log(req.cookies);
-      res.json('noooo')
+            secure: true,
+            sameSite: "None",
+            httpOnly: true,
+            maxAge: 86500000,
+          });
+          
+          res.json('noooo')
+      
+    }else if(req.cookies.test){
+      res.json('yessssssssss')
     }
+    
+    
 
   
   } catch (err) {
     console.log(err);
   }
 
-  //     if(set){
-  //       res.json({sat:"lol"})
-  //     }
+  //    
 });
 
 ////middleware
