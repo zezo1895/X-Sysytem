@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { BASE_URL } from "../../config";
 
 
 
@@ -10,7 +11,7 @@ const Fnav = () => {
   axios.defaults.withCredentials = true;
   const send = async () => {
     try {
-      await axios.get("https://x-sysytem-api.vercel.app/api/home").then((res) => {
+      await axios.get(BASE_URL + "/api/home").then((res) => {
         if (res.data.status) {
           setcurrent(true);
         } else {

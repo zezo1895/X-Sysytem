@@ -4,6 +4,7 @@ import Side from "../../comp/side";
 
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { BASE_URL } from "../../../config";
 const country_list = [
   "Afghanistan",
   "Albania",
@@ -227,7 +228,7 @@ const Add = () => {
   const check= async () => {
     axios.defaults.withCredentials = true;
     try {
-      const response = await axios.get("https://x-sysytem-api.vercel.app/api/add");
+      const response = await axios.get(BASE_URL + "/api/add");
       if (response.data.status===false) {
           navigate("/login")
       } 
@@ -241,7 +242,7 @@ const Add = () => {
     
     axios.defaults.withCredentials = true;
 try{
-    const response=await axios.post("https://x-sysytem-api.vercel.app/api/newCust",{
+    const response=await axios.post(BASE_URL + "/api/newCust",{
     firstName,lastName,email,age,gender,country,phone
       });
       if(response.data.status===true){

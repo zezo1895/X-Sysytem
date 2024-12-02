@@ -5,6 +5,7 @@ import {  useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import "../edit/edit.css"
 import Snav from '../../comp/snav';
+import { BASE_URL } from '../../../config';
 
 
 
@@ -245,7 +246,7 @@ const Edit = () => {
   }, []);
   const fetch =async () => {
     try {
-      const response = await axios.get(`https://x-sysytem-api.vercel.app/api/edit/${id}`);
+      const response = await axios.get(`${BASE_URL}/api/edit/${id}`);
     
       if(response.data.status){setCurrent(response.data.info)}
       
@@ -283,7 +284,7 @@ const handelchange = (eo) => {
     axios.defaults.withCredentials = true;
     
 try{
-    const response=await axios.put(`https://x-sysytem-api.vercel.app/api/edit/data/${id}`,
+    const response=await axios.put(`${BASE_URL}/api/edit/data/${id}`,
     current
       );
       if(response.data.action===true){
@@ -447,7 +448,7 @@ if(id){
         <form onSubmit={async(eo) => {
                 eo.preventDefault();
                 try{
-                  const response=await axios.delete(`https://x-sysytem-api.vercel.app/api/edit/${id}`,
+                  const response=await axios.delete(`${BASE_URL}/api/edit/${id}`,
                   
                     );
                     console.log(response.data);

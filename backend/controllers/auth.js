@@ -30,7 +30,7 @@ const post_login = async (req, res) => {
         );
         res.cookie("jwt", token, {
           withCrdentials: true,
-          
+
           secure: true,
           sameSite: "None",
           httpOnly: true,
@@ -93,13 +93,7 @@ const post_signup = async (req, res) => {
 
 //  get log out
 const get_logout = async (req, res) => {
-  await res.clearCookie("jwt", {
-    withCrdentials: true,
-
-    sameSite: "None",
-    httpOnly: true,
-  });
-  res.end();
+  res.clearCookie("jwt");
   return res.json({ status: true });
 };
 

@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faPenToSquare } from "@fortawesome/free-regular-svg-icons";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import Moment from "react-moment";
+import { BASE_URL } from "../../config";
 
 const Home = () => {
   const [current, setCurrent] = useState(null);
@@ -17,7 +18,7 @@ const Home = () => {
 
   const send = async () => {
     try {
-      const response = await axios.get("https://x-sysytem-api.vercel.app/api/home");
+      const response = await axios.get(BASE_URL + "/api/home");
       if (response.data.status) {
         setCurrent(response.data.userdata);
       }
@@ -29,33 +30,33 @@ const Home = () => {
     }
   };
   const search = async (eo) => {
-    eo.preventDefault(); 
+    eo.preventDefault();
     try {
       const response = await axios.post(
-        "https://x-sysytem-api.vercel.app/api/home/search",
+        BASE_URL + "/api/home/search",
         searchtext
-      );if(response.data.array){setCurrent(response.data.array)}
-      if(response.data.status===false){
-        navigate("/login")
+      );
+      if (response.data.array) {
+        setCurrent(response.data.array);
       }
-    
+      if (response.data.status === false) {
+        navigate("/login");
+      }
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   };
 
   const fetch = (params) => {
-    if(searchtext.search.trim() === ''){
-      send()
-    }
-  }
-  useEffect(() => {
-    
-    if(!current){
+    if (searchtext.search.trim() === "") {
       send();
-   }
-    
-  }, );
+    }
+  };
+  useEffect(() => {
+    if (!current) {
+      send();
+    }
+  });
 
   if (current) {
     return (
@@ -66,8 +67,11 @@ const Home = () => {
           <section className="w-100">
             <nav className="navbar bg-body-tertiary navbar-dark bg-dark ">
               <div className="container-fluid justify-content-center justify-content-md-between">
-                <a className="navbar-brand fw-medium fs-3 mb-1 mb-md-0 " href="!#">
-                X-system 👋
+                <a
+                  className="navbar-brand fw-medium fs-3 mb-1 mb-md-0 "
+                  href="!#"
+                >
+                  X-system 👋
                 </a>
                 <form onSubmit={search} className="d-flex" role="search">
                   <input
@@ -84,7 +88,6 @@ const Home = () => {
                       clone[eo.target.name] = eo.target.value;
 
                       setsearchtext(clone);
-                    
                     }}
                   />
                   <button className="btn btn-outline-success" type="submit">
@@ -146,7 +149,7 @@ const Home = () => {
                               onClick={async () => {
                                 try {
                                   const response = await axios.delete(
-                                    `https://x-sysytem-api.vercel.app/api/home/delete/${item._id}`
+                                    `${BASE_URL}/api/home/delete/${item._id}`
                                   );
                                   if (response.data.action) {
                                     navigate("/home");
@@ -154,7 +157,6 @@ const Home = () => {
                                   if (response.data.status === false) {
                                     navigate("/login");
                                   }
-
                                 } catch (error) {
                                   console.error("Error fetching data:", error);
                                 }

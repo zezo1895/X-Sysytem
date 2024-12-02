@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "watch": "nodemon --ext *"
+    "watch": "SET \"NODE_ENV=development\" && nodemon --ext *"
   },
   "author": "",
   "license": "ISC",

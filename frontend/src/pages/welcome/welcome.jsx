@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import "./welcome.css"
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { BASE_URL } from '../../config';
 const Welcome = () => {
   const navigate = useNavigate();
   axios.defaults.withCredentials = true;
@@ -9,7 +10,7 @@ const Welcome = () => {
   useEffect(() => {
     const fetch_page =async () => {
       try {
-        const response = await axios.get(`https://x-sysytem-api.vercel.app/api/wel_page`);
+        const response = await axios.get(`${BASE_URL}/api/wel_page`);
       if(response.data.auth===true){
         navigate("/home")
       }

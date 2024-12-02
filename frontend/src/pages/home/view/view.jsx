@@ -4,6 +4,7 @@ import Side from '../../comp/side';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import Moment from 'react-moment';
+import { BASE_URL } from '../../../config';
 
 const View = () => {
   const [current, setCurrent] = useState(null);
@@ -15,7 +16,7 @@ const View = () => {
 
   const send = async () => {
     try {
-      const response = await axios.get(`https://x-sysytem-api.vercel.app/api/home/view/${id}`);
+      const response = await axios.get(`${BASE_URL}/api/home/view/${id}`);
       if (response.data.status) {
         setCurrent(response.data.info);
       } if(response.data.status==false) {

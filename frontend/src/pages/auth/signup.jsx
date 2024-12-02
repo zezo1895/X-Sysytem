@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../../config";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ const Signup = () => {
   useEffect(() => {
     const fetch_page =async () => {
       try {
-        const response = await axios.get(`https://x-sysytem-api.vercel.app/api/signup_page`);
+        const response = await axios.get(`${BASE_URL}/api/signup_page`);
       if(response.data.auth===true){
         navigate("/home")
       }
@@ -38,7 +39,7 @@ const Signup = () => {
     try {
       const { data } = await axios
         .post(
-          "https://x-sysytem-api.vercel.app/api/signup",
+          BASE_URL + "/api/signup",
           {
             username,
             email,
