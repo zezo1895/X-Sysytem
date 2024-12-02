@@ -29,7 +29,6 @@ const post_login = async (req, res) => {
         var token = await jwt.sign({ id: loginUser._id }, process.env.JWT_SECRETE_KEY);
         
         res.cookie("jwt", token, {
-          domain:"https://x-sysytem-ziads-projects-f6c73ae6.vercel.app",
           withCrdentials: true,
           secure:true,
           sameSite:'None',
