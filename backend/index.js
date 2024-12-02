@@ -1,16 +1,13 @@
 const express = require("express");
 const app = express();
 var cookieParser = require("cookie-parser");
-const port = 5000|| process.env.PORT;
+const port = 5000 || process.env.PORT;
 const cors = require("cors");
 const path = require("path");
-require('dotenv').config()
+require("dotenv").config();
 app.use(express.static("public"));
 const mongoose = require("mongoose");
 const route = require("./routes/route");
-
-
-
 
 // app.use(express.static(path.join(__dirname, '../frontend/build')));
 // app.get('*', (req, res) => {
@@ -18,10 +15,7 @@ const route = require("./routes/route");
 // });
 
 mongoose
-  .connect(
-    process.env.MONGODB_URL,
-  
-  )
+  .connect(process.env.MONGODB_URL)
   .then(() => {
     app.listen(port, () => {
       console.log(`https://x-sysytem.vercel.app`);
@@ -45,6 +39,10 @@ app.use(
 
 app.use(express.urlencoded({ extended: true }));
 
-
 app.use(express.json());
 app.use(route);
+app.use(express.static(path.join(__dirname, "build")));
+
+app.get("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "build/index.html"));
+});
