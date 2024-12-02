@@ -65,7 +65,7 @@ try{
 
   
     
-  }, []);
+  },[] );
   return (
     <>
       <main className="px-3">

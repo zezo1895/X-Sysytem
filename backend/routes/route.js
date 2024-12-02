@@ -67,13 +67,18 @@ router.post("/api/newCust", checkAuth,Usercon.post_add_data );
 router.post("/api/home/search", checkAuth,Usercon.post_serch );
 
 
-router.get("/test-cookie", (req, res) => {
-    res.cookie("test", "value", {
+router.get("/test-cookie", async (req, res) => {
+const set= await res.cookie("test", "value", {
         secure: true,
         sameSite: "None",
         httpOnly: true,
+        maxAge: 86500000,
     });
-    res.json("Cookie set");
+    console.log("+++++++++");
+    
+    if(set){
+      res.json({sat:"lol"})
+    }
 });
 
 ////middleware
