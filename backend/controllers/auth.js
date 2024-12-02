@@ -29,7 +29,7 @@ const post_login = async (req, res) => {
         var token = await jwt.sign({ id: loginUser._id }, process.env.JWT_SECRETE_KEY);
         res.cookie("jwt", token, {
           withCrdentials: true,
-          path: "https://x-sysytem.vercel.app",
+          
           secure:true,
           sameSite:'None',
           httpOnly: true,
