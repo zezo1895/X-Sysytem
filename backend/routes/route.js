@@ -13,9 +13,9 @@ const upload = multer({ storage: multer.diskStorage({}) });
 const { check, validationResult } = require("express-validator");
 
 // test page
-router.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+// router.get("/", (req, res) => {
+//   res.send("Hello World!");
+// });
 // login page
 router.get("/api/login_page", Authcon.get_login);
 // signup page
@@ -65,30 +65,24 @@ router.post("/api/newCust", checkAuth, Usercon.post_add_data);
 router.post("/api/home/search", checkAuth, Usercon.post_serch);
 
 router.get("/test-cookie", async (req, res) => {
-  
   try {
-    if(!req.cookies.test){
+    if (!req.cookies.test) {
       const set = await res.cookie("test", "value", {
-            secure: true,
-            sameSite: "None",
-            httpOnly: true,
-            maxAge: 86500000,
-          });
-          
-          res.json('noooo')
-      
-    }else if(req.cookies.test){
-      res.json('yessssssssss')
-    }
-    
-    
+        secure: true,
+        sameSite: "None",
+        httpOnly: true,
+        maxAge: 86500000,
+      });
 
-  
+      res.json("noooo");
+    } else if (req.cookies.test) {
+      res.json("yessssssssss");
+    }
   } catch (err) {
     console.log(err);
   }
 
-  //    
+  //
 });
 
 ////middleware
