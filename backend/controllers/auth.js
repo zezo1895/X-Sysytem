@@ -28,6 +28,7 @@ const post_login = async (req, res) => {
           { id: loginUser._id },
           process.env.JWT_SECRETE_KEY
         );
+        console.log("wezaaaaaaaaa");
         res.cookie("jwt", token, {
           withCrdentials: true,
 
